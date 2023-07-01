@@ -25,7 +25,7 @@ if template is None:
                 st.text("Selected Template")
 
 def createPPT():
-    binary_output = main(topic=topic,pages=10,api_key="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",template_path=template)
+    binary_output = main(topic=topic,pages=10,api_key="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",template_path=template)
     st.download_button(label='Download',
                        data=binary_output.getvalue(),
                        file_name='new_ppt.pptx')
