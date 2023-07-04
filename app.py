@@ -20,7 +20,7 @@ tab1, tab2, tab3 = st.tabs(["Topic and API_KEY", "Templates", "Generated PPT and
 
 with tab1:
     topic = st.text_input(label="input", value=None, max_chars=100)
-    API_KEY = st.text_input(label="API_KEY", value=None)
+    API_KEY = st.secrets["API_KEY"]
 
 template = None
 
