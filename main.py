@@ -4,6 +4,7 @@ import time
 import random
 from pptx import Presentation
 from io import BytesIO
+import streamlit as st
 
 
 def robot_print(text):
@@ -66,7 +67,7 @@ def chatppt(topic: str, pages: int, api_key: str):
         content = json.loads(content.strip())
         return content
     except Exception as e:
-        print("I'm a PPT assistant, your PPT generate failed, please retry later..")
+        st.text("Your PPT generate failed, please check your API_KEY and its validity or try again later...")
         exit(1)
         # raise Exception("I'm PPT generate assistant, some error happened, please retry")
 
@@ -111,16 +112,10 @@ def generate_ppt(content: str, template):
             paragraph = body_shape.text_frame.add_paragraph()
             paragraph.text = bullet.get("description", "")
             paragraph.level = 2
-
-    ppt_name = content.get("title", "")
-    ppt_name = f"{ppt_name}.pptx"
-    binary_output = BytesIO()
-    ppt.save(binary_output)
-    robot_print("Generate done, enjoy!")
-    return binary_output
+    return ppt
 
 
 def main(topic: str, pages: int, api_key: str, template_path):
     ppt_content = chatppt(topic, pages, api_key)
-    binary_output = generate_ppt(ppt_content, template=template_path)
-    return binary_output
+    ppt = generate_ppt(ppt_content, template=template_path)
+    return ppt
