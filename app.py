@@ -48,13 +48,19 @@ def createPPT():
 
 with tab2:
     if template is None:
-        cols = st.columns(len(os.listdir("images")))
+        n = len(os.listdir("images"))
+        cols = st.columns(4)
         for i, col in enumerate(cols):
             with col:
                 st.image(f"images/{i}.jpg")
                 if st.button(label="click", key=i):
                     template = f"templates/{i}.pptx"
                     st.text("Selected Template")
+                st.image(f"images/{i+4}.jpg")
+                if st.button(label="click", key=i+4):
+                    template = f"templates/{i+4}.pptx"
+                    st.text("Selected Template")
+
 
     if topic != "None" and template is not None:
         st.button(label="Create", key=100, on_click=createPPT)
