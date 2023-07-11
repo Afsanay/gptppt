@@ -16,10 +16,10 @@ st.title("GPT-PPT")
 with st.sidebar:
     st.title("GPT making your PPTs")
 
-tab1, tab2, tab3 = st.tabs(["Topic and API_KEY", "Templates", "Generated PPT and Images"])
+tab1, tab2, tab3 = st.tabs(["Topic", "Templates", "Generated PPT and Images"])
 
 with tab1:
-    topic = st.text_input(label="input", value=None, max_chars=100)
+    topic = st.text_input(label="Topic Prompt", value=None, max_chars=100)
     API_KEY = st.secrets["API_KEY"]
 
 template = None
