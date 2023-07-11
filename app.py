@@ -14,6 +14,9 @@ st.set_page_config(layout="wide")
 st.title("GPT-PPT")
 
 with st.sidebar:
+    st.image(
+        'https://imageio.forbes.com/specials-images/imageserve/5f51c38ba72e09805e578c53/3-Predictions-For-The-Role-Of'
+        '-Artificial-Intelligence-In-Art-And-Design/960x0.jpg?format=jpg&width=960')
     st.title("GPT making your PPTs")
 
 tab1, tab2, tab3 = st.tabs(["Topic", "Templates", "Generated PPT and Images"])
